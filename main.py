@@ -2,7 +2,7 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget # them widget tu 
 from PyQt6 import uic # them chuc nang load ui
 import sys # them thu vien dieu khien he thong
 # Lop trang chu
-
+import webbrowser
 class HomeDashboard(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -10,8 +10,30 @@ class HomeDashboard(QMainWindow):
         uic.loadUi("Ui-GiaoDien/home.ui", self)
         self.btnHome.clicked.connect(self.showHome)
         self.btnProfile.clicked.connect(self.showProfile)
-    def showHome(self):
+        self.btnRoblox.clicked.connect(self.showRoblox)
+        self.btnRoblox_2.clicked.connect(self.showRoblox)
+        self.btnFallguy_2.clicked.connect(self.showFallguy)
+        self.btnFallguy.clicked.connect(self.showFallguy)
+        self.btnValorant_2.clicked.connect(self.showValorant)
+        self.btnValorant.clicked.connect(self.showValorant)
+        
+        x = None
+        # download/play
+        self.btndownload_roblox.clicked.connect(lambda _, item=x: self.downloadGames(Linkdownload ="https://www.roblox.com/download"))
+        self.btndownload_fallguy.clicked.connect(lambda _, item=x: self.downloadGames(Linkdownload ="https://www.fallguys.com/en-US/download"))
+        self.btndownload_valorant.clicked.connect(lambda _, item=x: self.downloadGames(Linkdownload = "https://playvalorant.com/vi-vn/download/"))
+
+    def downloadGames(self, Linkdownload):
+        webbrowser.open(Linkdownload)
+
+    def showRoblox(self):
         self.stackedMenu.setCurrentIndex(1)
+    def showValorant(self):
+        self.stackedMenu.setCurrentIndex(3)
+    def showFallguy(self):
+        self.stackedMenu.setCurrentIndex(2)
+    def showHome(self):
+        self.stackedMenu.setCurrentIndex(0)
     def showProfile(self):
         self.stackedMenu.setCurrentIndex(2)
 class SignUp(QMainWindow):
