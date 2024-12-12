@@ -25,7 +25,7 @@ class HomeDashboard(QMainWindow):
 
     def downloadGames(self, Linkdownload):
         webbrowser.open(Linkdownload)
-
+    # show các trang
     def showRoblox(self):
         self.stackedMenu.setCurrentIndex(1)
     def showValorant(self):
@@ -53,7 +53,7 @@ class SignUp(QMainWindow):
         password = self.txtpassword
         comfirmPassWord = self.txtcomfirmpassword
 
-        # neu chua nhap thi cho nguoi dung nhap 
+        # dang nhap
         if username.text() == "":
             username.setFocus()
             return
@@ -68,7 +68,7 @@ class SignUp(QMainWindow):
             username.clear()
             username.setFocus()
             return
-        # neu nhu mat khau va nhap lai mat khau thong dung
+        # neu nhu mat khau sai va nhap lai mat khau thong dung
         if password.text() != confirmPassword.text():
             comfirmPassword.setFocus()
             return
